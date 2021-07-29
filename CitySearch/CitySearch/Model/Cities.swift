@@ -9,17 +9,15 @@ import Foundation
 
 // MARK: - Cities
 
-/// Model to represent all the `cities`
-struct Cities: Codable {
-    let cities: [City]
-}
+/// Typealias to represent all the `cities`
+  typealias Cities = [City]
 
 // MARK: - City
 /**
  Model to represent `City`
  Marking all the properties nullable, because didn't wanted it to be tightly coupled. It might be parsing fail or crash, if any of the value comes as nil from backend. To avoid that, and to remove that dependency, thought to take everything as optional
  */
-struct City: Codable {
+struct City: Decodable {
     let country: String?
     let city: String?
     let id: Int?
@@ -43,11 +41,9 @@ struct City: Codable {
 }
 
 // MARK: - Coord
-struct Coordinates: Codable {
+struct Coordinates: Decodable {
     let lon, lat: Double
 }
-
-//typealias Cities = [City]
 
 extension City {
     
