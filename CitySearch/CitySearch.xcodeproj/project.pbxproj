@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E50F83FE26B30D1300D380E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F83FD26B30D1300D380E2 /* AppDelegate.swift */; };
-		E50F840026B30D1300D380E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F83FF26B30D1300D380E2 /* SceneDelegate.swift */; };
 		E50F840226B30D1300D380E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F840126B30D1300D380E2 /* ViewController.swift */; };
 		E50F840526B30D1300D380E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E50F840326B30D1300D380E2 /* Main.storyboard */; };
 		E50F840726B30D1600D380E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E50F840626B30D1600D380E2 /* Assets.xcassets */; };
@@ -37,7 +36,6 @@
 /* Begin PBXFileReference section */
 		E50F83FA26B30D1300D380E2 /* CitySearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitySearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50F83FD26B30D1300D380E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E50F83FF26B30D1300D380E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E50F840126B30D1300D380E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E50F840426B30D1300D380E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E50F840626B30D1600D380E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,13 +97,8 @@
 		E50F83FC26B30D1300D380E2 /* CitySearch */ = {
 			isa = PBXGroup;
 			children = (
-				E50F83FD26B30D1300D380E2 /* AppDelegate.swift */,
-				E50F83FF26B30D1300D380E2 /* SceneDelegate.swift */,
+				E50F842D26B30E0100D380E2 /* Supporting */,
 				E50F840126B30D1300D380E2 /* ViewController.swift */,
-				E50F840326B30D1300D380E2 /* Main.storyboard */,
-				E50F840626B30D1600D380E2 /* Assets.xcassets */,
-				E50F840826B30D1600D380E2 /* LaunchScreen.storyboard */,
-				E50F840B26B30D1600D380E2 /* Info.plist */,
 			);
 			path = CitySearch;
 			sourceTree = "<group>";
@@ -126,6 +119,18 @@
 				E50F842126B30D1700D380E2 /* Info.plist */,
 			);
 			path = CitySearchUITests;
+			sourceTree = "<group>";
+		};
+		E50F842D26B30E0100D380E2 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				E50F83FD26B30D1300D380E2 /* AppDelegate.swift */,
+				E50F840326B30D1300D380E2 /* Main.storyboard */,
+				E50F840626B30D1600D380E2 /* Assets.xcassets */,
+				E50F840826B30D1600D380E2 /* LaunchScreen.storyboard */,
+				E50F840B26B30D1600D380E2 /* Info.plist */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +265,6 @@
 			files = (
 				E50F840226B30D1300D380E2 /* ViewController.swift in Sources */,
 				E50F83FE26B30D1300D380E2 /* AppDelegate.swift in Sources */,
-				E50F840026B30D1300D380E2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +442,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HP3Y7E23LF;
-				INFOPLIST_FILE = CitySearch/Info.plist;
+				INFOPLIST_FILE = CitySearch/Supporting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -458,7 +462,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HP3Y7E23LF;
-				INFOPLIST_FILE = CitySearch/Info.plist;
+				INFOPLIST_FILE = CitySearch/Supporting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
