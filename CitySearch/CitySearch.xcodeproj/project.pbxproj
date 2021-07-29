@@ -14,6 +14,8 @@
 		E50F840A26B30D1600D380E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E50F840826B30D1600D380E2 /* LaunchScreen.storyboard */; };
 		E50F841526B30D1700D380E2 /* CitySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F841426B30D1700D380E2 /* CitySearchTests.swift */; };
 		E50F842026B30D1700D380E2 /* CitySearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F841F26B30D1700D380E2 /* CitySearchUITests.swift */; };
+		E50F842F26B30FAB00D380E2 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = E50F842E26B30FAB00D380E2 /* cities.json */; };
+		E5DCEFCE26B3112E003E8E51 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DCEFCD26B3112E003E8E51 /* Cities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		E50F841B26B30D1700D380E2 /* CitySearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CitySearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50F841F26B30D1700D380E2 /* CitySearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchUITests.swift; sourceTree = "<group>"; };
 		E50F842126B30D1700D380E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E50F842E26B30FAB00D380E2 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
+		E5DCEFCD26B3112E003E8E51 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +101,9 @@
 		E50F83FC26B30D1300D380E2 /* CitySearch */ = {
 			isa = PBXGroup;
 			children = (
+				E5DCEFCC26B31115003E8E51 /* Model */,
 				E50F842D26B30E0100D380E2 /* Supporting */,
-				E50F840126B30D1300D380E2 /* ViewController.swift */,
+				E5DCEFCB26B31109003E8E51 /* UI */,
 			);
 			path = CitySearch;
 			sourceTree = "<group>";
@@ -127,10 +132,27 @@
 				E50F83FD26B30D1300D380E2 /* AppDelegate.swift */,
 				E50F840326B30D1300D380E2 /* Main.storyboard */,
 				E50F840626B30D1600D380E2 /* Assets.xcassets */,
+				E50F842E26B30FAB00D380E2 /* cities.json */,
 				E50F840826B30D1600D380E2 /* LaunchScreen.storyboard */,
 				E50F840B26B30D1600D380E2 /* Info.plist */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		E5DCEFCB26B31109003E8E51 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E50F840126B30D1300D380E2 /* ViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		E5DCEFCC26B31115003E8E51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5DCEFCD26B3112E003E8E51 /* Cities.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E50F842F26B30FAB00D380E2 /* cities.json in Resources */,
 				E50F840A26B30D1600D380E2 /* LaunchScreen.storyboard in Resources */,
 				E50F840726B30D1600D380E2 /* Assets.xcassets in Resources */,
 				E50F840526B30D1300D380E2 /* Main.storyboard in Resources */,
@@ -263,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5DCEFCE26B3112E003E8E51 /* Cities.swift in Sources */,
 				E50F840226B30D1300D380E2 /* ViewController.swift in Sources */,
 				E50F83FE26B30D1300D380E2 /* AppDelegate.swift in Sources */,
 			);
