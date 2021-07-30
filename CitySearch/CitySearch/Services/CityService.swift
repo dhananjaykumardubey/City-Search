@@ -7,14 +7,7 @@
 
 import Foundation
 
-protocol LocalCitiesClient {
-
-    init(fileName: String, bundle: Bundle)
-
-    func fetchCities(_ completion: @escaping ((Result<Cities, Error>) -> Void))
-}
-
-final class CityService: LocalCitiesClient, Service {
+final class CityService: APIClient, Service {
 
     typealias Response = Cities
     

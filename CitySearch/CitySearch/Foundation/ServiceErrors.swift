@@ -13,6 +13,7 @@ enum ServiceErrors: Error {
     case unableToParseData
     case unableToLoadFile
     case dataCorrupted
+    case noDataFound
     
     var errorDescription: String? {
         switch self {
@@ -22,6 +23,8 @@ enum ServiceErrors: Error {
             return "Loading Error - Unable to load the file from bundle"
         case .dataCorrupted:
             return "Data Error - Unable to load data from file, as data looks corrupted"
+        case .noDataFound:
+            return "No data found. \n Please try again later"
         }
     }
 }
