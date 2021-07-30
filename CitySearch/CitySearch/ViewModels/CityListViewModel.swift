@@ -39,22 +39,29 @@ final class CityListViewModel {
     /// Fetch cities from local file
     func fetchCities() {
         self.startLoading?()
-        self.apiClient?.fetchCities({ [weak self] response in
-            self?.endLoading?()
-            guard let _self = self else {
-                return
-            }
-            switch response {
-            case let .success(cities):
-                if !cities.isEmpty {
-                    _self.cities?(cities)
-                } else {
-                    _self.showError?(ServiceErrors.noDataFound.errorDescription ?? "")
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.apiClient?.fetchCities({ [weak self] response in
+                performOnMain {
+                    self?.endLoading?()
+                    guard let _self = self else {
+                        return
+                    }
+                    switch response {
+                    case let .success(cities):
+                        if !cities.isEmpty {
+                            let sortedCities = cities.sorted { lhs, rhs in
+                                return (lhs.city ?? "") < (rhs.city ?? "")
+                            }
+                            _self.cities?(sortedCities)
+                        } else {
+                            _self.showError?(ServiceErrors.noDataFound.errorDescription ?? "")
+                        }
+                    case let .failure(error):
+                        _self.endLoading?()
+                        _self.showError?(error.localizedDescription)
+                    }
                 }
-            case let .failure(error):
-                _self.endLoading?()
-                _self.showError?(error.localizedDescription)
-            }
-        })
+            })
+        }
     }
 }
