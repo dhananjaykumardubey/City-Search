@@ -19,18 +19,17 @@ extension Service {
     func execute(for fileName: String,
                  in bundle: Bundle,
                  then completion: @escaping ((Result<Response, Error>) -> Void)) {
-        
-        guard let result = try? self.loadLocalFile(for: fileName, from: bundle) else {
-            completion(.failure(ServiceErrors.unableToLoadFile))
-            return
-        }
+        let result = self.loadLocalFile(for: fileName, from: bundle)
         switch result {
-        case .success( let data):
+        case .success(let data):
             do {
+                guard let data = data else {
+                    completion(.failure(ServiceErrors.dataCorrupted))
+                    return
+                }
                 let result = try parse(toType: Response.self, data: data)
                 completion(.success(result))
             } catch {
-                print("Errors \(error)")
                 completion(.failure(ServiceErrors.unableToParseData))
             }
         case .failure(let error):

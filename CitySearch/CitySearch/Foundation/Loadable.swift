@@ -11,21 +11,21 @@ import Foundation
 protocol Loadable {
     // TODO: Write document
     func loadLocalFile(for name: String,
-                       from bundle: Bundle) throws -> Result<Data, Error>
+                       from bundle: Bundle) -> Result<Data?, Error>
 }
 
 extension Loadable {
     func loadLocalFile(for name: String,
-                       from bundle: Bundle) throws -> Result<Data, Error> {
+                       from bundle: Bundle) -> Result<Data?, Error> {
         do {
             guard
-                let bundlePath = bundle.path(forResource: name, ofType: "json"),
-               let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) else {
+                let bundlePath = bundle.path(forResource: name, ofType: "json") else {
                 return .failure(ServiceErrors.unableToLoadFile)
             }
+            let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8)
             return .success(jsonData)
         } catch {
-            throw ServiceErrors.dataCorrupted
+            return .failure(ServiceErrors.dataCorrupted)
         }
     }
 }
