@@ -54,11 +54,11 @@ final class CityListViewModel {
                             }
                             _self.cities?(sortedCities)
                         } else {
-                            _self.showError?(ServiceErrors.noDataFound.errorDescription ?? "")
+                            _self.showError?(ServiceErrors.noDataFound.errorDescription)
                         }
                     case let .failure(error):
                         _self.endLoading?()
-                        _self.showError?(error.localizedDescription)
+                        _self.showError?(error.errorDescription)
                     }
                 }
             })

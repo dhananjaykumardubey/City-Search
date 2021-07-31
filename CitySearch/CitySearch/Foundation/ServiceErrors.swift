@@ -15,7 +15,7 @@ enum ServiceErrors: Error {
     case dataCorrupted
     case noDataFound
     
-    var errorDescription: String? {
+    var errorDescription: String {
         switch self {
         case .unableToParseData:
             return "Parser Error - Something went wrong.\n Please try again later"

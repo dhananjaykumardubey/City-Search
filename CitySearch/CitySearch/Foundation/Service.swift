@@ -12,13 +12,13 @@ protocol Service: Loadable {
     
     func execute(for fileName: String,
                  in bundle: Bundle,
-                 then completion: @escaping ((Result<Response, Error>) -> Void))
+                 then completion: @escaping ((Result<Response, ServiceErrors>) -> Void))
 }
 
 extension Service {
     func execute(for fileName: String,
                  in bundle: Bundle,
-                 then completion: @escaping ((Result<Response, Error>) -> Void)) {
+                 then completion: @escaping ((Result<Response, ServiceErrors>) -> Void)) {
         let result = self.loadLocalFile(for: fileName, from: bundle)
         switch result {
         case .success(let data):

@@ -11,5 +11,5 @@ protocol APIClient {
 
     init(fileName: String, bundle: Bundle)
 
-    func fetchCities(_ completion: @escaping ((Result<Cities, Error>) -> Void))
+    func fetchCities(_ completion: @escaping ((Result<Cities, ServiceErrors>) -> Void))
 }

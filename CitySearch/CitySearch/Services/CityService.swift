@@ -19,7 +19,7 @@ final class CityService: APIClient, Service {
         self.bundle = bundle
     }
     
-    func fetchCities(_ completion: @escaping ((Result<Cities, Error>) -> Void)) {
+    func fetchCities(_ completion: @escaping ((Result<Cities, ServiceErrors>) -> Void)) {
         self.execute(for: self.fileName, in: self.bundle, then: completion)
     }
 }

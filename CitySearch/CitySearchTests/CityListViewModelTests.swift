@@ -52,4 +52,32 @@ class CityListViewModelTests: XCTestCase {
         self.wait(for: [expect], timeout: 1)
     }
 
+    func testFetchingOfCitiesFailedDueToWrongFileName() {
+        let client = CityService(fileName: "WrongFileName", bundle: Bundle(for: Self.self))
+        let viewModel = CityListViewModel(with: client)
+        
+        let expect = self.expectation(description: "fetch cities lists failed")
+        viewModel.fetchCities()
+        
+        viewModel.showError = { error in
+            expect.fulfill()
+            XCTAssertEqual(ServiceErrors.unableToLoadFile.errorDescription, error)
+        }
+        self.wait(for: [expect], timeout: 1)
+    }
+    
+    func testEmptyCitiesRecords() {
+        let client = CityService(fileName: "EmptyData", bundle: Bundle(for: Self.self))
+        let viewModel = CityListViewModel(with: client)
+        
+        let expect = self.expectation(description: "Empty cities records")
+        viewModel.fetchCities()
+        
+        viewModel.showError = { error in
+            expect.fulfill()
+            XCTAssertEqual(ServiceErrors.noDataFound.errorDescription, error)
+        }
+        self.wait(for: [expect], timeout: 1)
+    }
 }
+
