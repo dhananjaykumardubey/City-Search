@@ -20,7 +20,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pox-ih-Ks4">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="chH-QN-tCH">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="chH-QN-tCH">
                                         <rect key="frame" x="0.0" y="96" width="414" height="800"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
@@ -53,6 +53,45 @@
             </objects>
             <point key="canvasLocation" x="992.75362318840587" y="25.446428571428569"/>
         </scene>
+        <!--Maps View Controller-->
+        <scene sceneID="etq-Kx-UQ0">
+            <objects>
+                <viewController storyboardIdentifier="MapsViewController" id="osE-QK-Xdh" customClass="MapsViewController" customModule="CitySearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pbl-9B-cSx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zel-6b-hNt">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvG-JT-jFm">
+                                <rect key="frame" x="352" y="800" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="n6J-se-Sfu"/>
+                                    <constraint firstAttribute="height" constant="50" id="us6-2j-HeT"/>
+                                </constraints>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="m2M-PV-otm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zel-6b-hNt" firstAttribute="leading" secondItem="m2M-PV-otm" secondAttribute="leading" id="N1r-5o-Uf8"/>
+                            <constraint firstItem="zel-6b-hNt" firstAttribute="trailing" secondItem="m2M-PV-otm" secondAttribute="trailing" id="RW4-dl-MkN"/>
+                            <constraint firstItem="m2M-PV-otm" firstAttribute="trailing" secondItem="xvG-JT-jFm" secondAttribute="trailing" constant="12" id="b18-wa-WCS"/>
+                            <constraint firstAttribute="bottom" secondItem="zel-6b-hNt" secondAttribute="bottom" id="fdg-d8-pdK"/>
+                            <constraint firstItem="m2M-PV-otm" firstAttribute="bottom" secondItem="xvG-JT-jFm" secondAttribute="bottom" constant="12" id="gTY-Cn-Dgf"/>
+                            <constraint firstItem="zel-6b-hNt" firstAttribute="top" secondItem="Pbl-9B-cSx" secondAttribute="top" id="hya-v9-6S1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="zel-6b-hNt" id="ccl-b3-0L1"/>
+                        <outlet property="openMapButton" destination="xvG-JT-jFm" id="my6-m4-yuG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="boW-8I-w7U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2108.695652173913" y="-10.044642857142856"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ggb-CW-cPT">
             <objects>
@@ -73,6 +112,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

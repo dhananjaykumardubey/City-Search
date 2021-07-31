@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 final class CityListViewModel {
     
@@ -24,9 +25,12 @@ final class CityListViewModel {
     /// Callback returning cities as datasource
     var cities: (([City]) -> Void)?
     
+    /// Callback to send out location of city when city is selected
+    var citySelectionObserver: (((CLLocationCoordinate2D, IndexPath, String)) -> Void)?
+
     //MARK: Private properties
     private let apiClient: APIClient?
-    
+        
     required init(with apiClient: APIClient) {
         self.apiClient = apiClient
     }
@@ -63,5 +67,15 @@ final class CityListViewModel {
                 }
             })
         }
+    }
+    
+    func didSelect(_ city: City, at indexPath: IndexPath) {
+        guard let lat = city.coordinates?.lat,
+              let lon = city.coordinates?.lon
+        else {
+            self.showError?("No Location Found")
+            return
+        }
+        self.citySelectionObserver?((CLLocationCoordinate2D(latitude: lat, longitude: lon), indexPath, city.fullAddress))
     }
 }

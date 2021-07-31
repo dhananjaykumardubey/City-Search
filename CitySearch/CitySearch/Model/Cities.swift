@@ -30,6 +30,13 @@ struct City: Decodable {
         case coordinates = "coord"
     }
     
+    init(country: String? = "", city: String? = "", id: Int? = -1, coordinates: Coordinates? = nil) {
+        self.city = city
+        self.country = country
+        self.id = id
+        self.coordinates = coordinates
+    }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         

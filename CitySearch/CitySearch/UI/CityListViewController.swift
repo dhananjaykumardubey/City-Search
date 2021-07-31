@@ -72,12 +72,30 @@ final class CityListViewController: UIViewController {
             _self.tableView.dataSource = _self.dataSource
             _self.tableView.reloadData()
         }
+        
+        self.viewModel?.citySelectionObserver = { [weak self] in
+            guard let _self = self,
+                  _self.tableView.hasRow(at: $0.1) else { return }
+            _self.tableView.scrollToRow(at: $0.1, at: .top, animated: true)
+            let heightOfCell = _self.tableView.cellForRow(at: $0.1)?.frame.size.height ?? 50.0
+            
+            let screenSize = UIScreen.main.bounds.size
+            let mapsVc = MapsViewController.instantiate(with: $0.0, locationName: $0.2)
+            _self.present(mapsVc,
+                          onSourceView: _self.view,
+                          onSourceRect: CGRect(x: 0, y: 100 + heightOfCell, width: screenSize.width, height: 0),
+                          forContentSize: CGSize(width: screenSize.width, height: screenSize.height),
+                          animated: true,
+                          completion: nil)
+        }
+        
         self.viewModel?.bindViewModel()
     }
 }
 
 extension CityListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        guard let city = self.dataSource?.city(at: indexPath) else { return }
+        self.viewModel?.didSelect(city, at: indexPath)
     }
 }

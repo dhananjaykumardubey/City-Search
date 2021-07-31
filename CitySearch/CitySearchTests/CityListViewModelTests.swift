@@ -9,6 +9,7 @@ import XCTest
 @testable import CitySearch
 
 class CityListViewModelTests: XCTestCase {
+    
     private var viewModel: CityListViewModel?
     private var apiClient: APIClient!
     
@@ -78,6 +79,72 @@ class CityListViewModelTests: XCTestCase {
             XCTAssertEqual(ServiceErrors.noDataFound.errorDescription, error)
         }
         self.wait(for: [expect], timeout: 1)
+    }
+    
+    func testSelectionOfCityAtFirstIndex() {
+        
+        let indexPath = IndexPath(row: 0, section: 0)
+        let city = self.city()[indexPath.row]
+        
+        let expect = self.expectation(description: "test selection of city")
+        
+        self.viewModel?.citySelectionObserver = { data in
+            expect.fulfill()
+            
+            XCTAssertEqual(data.0.latitude, 31.75)
+            XCTAssertEqual(data.0.longitude, 34.700001)
+            XCTAssertEqual(data.1.row, 0)
+            XCTAssertEqual(data.1.section, 0)
+            XCTAssertEqual(data.2, "Azriqam, IL")
+        }
+        
+        self.viewModel?.didSelect(city, at: indexPath)
+        self.wait(for: [expect], timeout: 1)
+    }
+    
+    
+    private func city() -> [City] {
+        
+        let stubbedData = Data("""
+                [
+                  {
+                      \"country\":\"UA\",
+                       \"name\":\"Hurzuf\",
+                       \"_id\": 707860,
+                       \"coord\": {
+                           \"lon\": 34.283333,
+                           \"lat\": 44.549999
+                
+                 }
+                },
+                 {
+                                      \"country\":\"RU\",
+                                       \"name\":\"Novinki\",
+                                       \"_id\": 519188,
+                                       \"coord\": {
+                                           \"lon\": 37.666668,
+                                           \"lat\": 55.683334
+                                
+                                 }
+                                },
+                                  {
+                                      \"country\":\"IL\",
+                                       \"name\":\"Azriqam\",
+                                       \"_id\": 295582,
+                                       \"coord\": {
+                                           \"lon\": 34.700001,
+                                           \"lat\": 31.75
+                                
+                                 }
+                                }
+                ]
+                """.utf8)
+        guard
+            let cities = try? JSONDecoder().decode(Cities.self, from: stubbedData)
+            else {
+            return []
+        }
+        return cities
     }
 }
 
