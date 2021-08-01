@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91C94A0726B6BBBC00AECE91 /* UITextField+Enhancements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C94A0626B6BBBC00AECE91 /* UITextField+Enhancements.swift */; };
+		91C94A0E26B6BC7000AECE91 /* Option+Wrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C94A0D26B6BC7000AECE91 /* Option+Wrapped.swift */; };
+		91C94A2A26B6F42000AECE91 /* SearchManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C94A2926B6F42000AECE91 /* SearchManagerTests.swift */; };
+		91C94A3226B709E300AECE91 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C94A3126B709E300AECE91 /* SearchManager.swift */; };
+		91C94A4E26B71AB400AECE91 /* CityListDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C94A4D26B71AB400AECE91 /* CityListDataSourceTests.swift */; };
 		E50D05C726B45B6900DD8D6C /* StubbedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50D05C626B45B6900DD8D6C /* StubbedData.swift */; };
 		E50F83FE26B30D1300D380E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F83FD26B30D1300D380E2 /* AppDelegate.swift */; };
 		E50F840226B30D1300D380E2 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F840126B30D1300D380E2 /* CityListViewController.swift */; };
@@ -64,6 +69,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		91C94A0626B6BBBC00AECE91 /* UITextField+Enhancements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Enhancements.swift"; sourceTree = "<group>"; };
+		91C94A0D26B6BC7000AECE91 /* Option+Wrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Option+Wrapped.swift"; sourceTree = "<group>"; };
+		91C94A2926B6F42000AECE91 /* SearchManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManagerTests.swift; sourceTree = "<group>"; };
+		91C94A3126B709E300AECE91 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
+		91C94A4D26B71AB400AECE91 /* CityListDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListDataSourceTests.swift; sourceTree = "<group>"; };
 		E50D05C626B45B6900DD8D6C /* StubbedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubbedData.swift; sourceTree = "<group>"; };
 		E50F83FA26B30D1300D380E2 /* CitySearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitySearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50F83FD26B30D1300D380E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +187,8 @@
 				E5A88C0E26B5087C0018B2B3 /* EmptyData.json */,
 				E50D05C626B45B6900DD8D6C /* StubbedData.swift */,
 				E5A88C0C26B47EAC0018B2B3 /* CityListViewModelTests.swift */,
+				91C94A2926B6F42000AECE91 /* SearchManagerTests.swift */,
+				91C94A4D26B71AB400AECE91 /* CityListDataSourceTests.swift */,
 				E5A88C0826B46AD70018B2B3 /* CityServiceTests.swift */,
 				E50F841626B30D1700D380E2 /* Info.plist */,
 				E5A88C0026B45DC90018B2B3 /* CitiesTests.swift */,
@@ -234,6 +246,9 @@
 				E5A88C1226B50F860018B2B3 /* UIImage+Enhancements.swift */,
 				E5A88C2026B540DD0018B2B3 /* CLLocationCoordinate2D+Equatable.swift */,
 				E5A88C1E26B536AB0018B2B3 /* UIView+Animations.swift */,
+				91C94A0626B6BBBC00AECE91 /* UITextField+Enhancements.swift */,
+				91C94A0D26B6BC7000AECE91 /* Option+Wrapped.swift */,
+				91C94A3126B709E300AECE91 /* SearchManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -426,8 +441,10 @@
 				E5DCEFD526B320F6003E8E51 /* Parser.swift in Sources */,
 				E50F840226B30D1300D380E2 /* CityListViewController.swift in Sources */,
 				E5DCEFD126B31C07003E8E51 /* Loadable.swift in Sources */,
+				91C94A0726B6BBBC00AECE91 /* UITextField+Enhancements.swift in Sources */,
 				E5A88C1126B50AF80018B2B3 /* MapsViewController.swift in Sources */,
 				E50F83FE26B30D1300D380E2 /* AppDelegate.swift in Sources */,
+				91C94A0E26B6BC7000AECE91 /* Option+Wrapped.swift in Sources */,
 				E5DCEFD926B32784003E8E51 /* CityService.swift in Sources */,
 				E5589A4526B3C94C002D4417 /* UIViewController+Enhancements.swift in Sources */,
 				E5A88C1526B512C80018B2B3 /* UITableView+Enhancements.swift in Sources */,
@@ -438,6 +455,7 @@
 				E5DCEFD726B321DF003E8E51 /* Service.swift in Sources */,
 				E5A88C1926B51B530018B2B3 /* MapItem.swift in Sources */,
 				E5A88C1F26B536AB0018B2B3 /* UIView+Animations.swift in Sources */,
+				91C94A3226B709E300AECE91 /* SearchManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +465,8 @@
 			files = (
 				E5A88C0126B45DC90018B2B3 /* CitiesTests.swift in Sources */,
 				E5A88C0926B46AD70018B2B3 /* CityServiceTests.swift in Sources */,
+				91C94A2A26B6F42000AECE91 /* SearchManagerTests.swift in Sources */,
+				91C94A4E26B71AB400AECE91 /* CityListDataSourceTests.swift in Sources */,
 				E50D05C726B45B6900DD8D6C /* StubbedData.swift in Sources */,
 				E5A88C0D26B47EAC0018B2B3 /* CityListViewModelTests.swift in Sources */,
 			);
@@ -617,7 +637,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HP3Y7E23LF;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CitySearch/Supporting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -637,7 +657,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HP3Y7E23LF;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CitySearch/Supporting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (

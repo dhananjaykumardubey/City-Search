@@ -15,6 +15,15 @@ final class CityListViewController: UIViewController {
             self.tableView.delegate = self
         }
     }
+    @IBOutlet private weak var searchTextField: UITextField! {
+        didSet {
+            self.searchTextField.textColor = UIColor.orange
+            self.searchTextField.placeholder = "Search"
+            self.searchTextField.borderStyle = .roundedRect
+            self.searchTextField.addDoneButton()
+            self.searchTextField.delegate = self
+        }
+    }
     
     private var viewModel: CityListViewModel?
     private var dataSource: CityListDataSource?
@@ -83,7 +92,7 @@ final class CityListViewController: UIViewController {
             let mapsVc = MapsViewController.instantiate(with: $0.0, locationName: $0.2)
             _self.present(mapsVc,
                           onSourceView: _self.view,
-                          onSourceRect: CGRect(x: 0, y: 100 + heightOfCell, width: screenSize.width, height: 0),
+                          onSourceRect: CGRect(x: 0, y: _self.topBarHeight + 50 + heightOfCell, width: screenSize.width, height: 0),
                           forContentSize: CGSize(width: screenSize.width, height: screenSize.height),
                           animated: true,
                           completion: nil)
@@ -97,5 +106,23 @@ extension CityListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let city = self.dataSource?.city(at: indexPath) else { return }
         self.viewModel?.didSelect(city, at: indexPath)
+    }
+}
+
+extension CityListViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        self.viewModel?.search(for:
+            textField.text.replaceCharacter(
+                in: range, replacementString: string))
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if let text = textField.text {
+            self.viewModel?.search(for: text)
+        }
     }
 }

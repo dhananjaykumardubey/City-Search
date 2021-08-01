@@ -30,12 +30,14 @@ final class CityListViewModel {
 
     //MARK: Private properties
     private let apiClient: APIClient?
-        
+    private lazy var cityList: [City] = []
+    private var searchManager: SearchManager?
+    
     required init(with apiClient: APIClient) {
         self.apiClient = apiClient
     }
     
-    /// BindViewModel call to let viewmodel know that bindViewModel of viewcontroller is called and completed and properties can be observed
+    /// BindViewModel call to let viewmodel know that bindViewModel of viewcontroller is called and completed and properties : PrefixSearchable<City>can be observed
     func bindViewModel() {
         self.fetchCities()
     }
@@ -43,7 +45,7 @@ final class CityListViewModel {
     /// Fetch cities from local file
     func fetchCities() {
         self.startLoading?()
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global(qos: .userInteractive).async {
             self.apiClient?.fetchCities({ [weak self] response in
                 performOnMain {
                     self?.endLoading?()
@@ -56,6 +58,8 @@ final class CityListViewModel {
                             let sortedCities = cities.sorted { lhs, rhs in
                                 return (lhs.city ?? "") < (rhs.city ?? "")
                             }
+                            _self.cityList = sortedCities
+                            _self.searchManager = SearchManager(with: sortedCities)
                             _self.cities?(sortedCities)
                         } else {
                             _self.showError?(ServiceErrors.noDataFound.errorDescription)
@@ -77,5 +81,13 @@ final class CityListViewModel {
             return
         }
         self.citySelectionObserver?((CLLocationCoordinate2D(latitude: lat, longitude: lon), indexPath, city.fullAddress))
+    }
+
+    func search(for text: String) {
+        if text.isEmpty {
+            self.cities?(self.cityList)
+        } else {
+            self.cities?(self.searchManager?.updateFilter(filter: text.lowercased()) ?? [])
+        }
     }
 }

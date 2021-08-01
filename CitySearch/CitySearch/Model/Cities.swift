@@ -79,3 +79,11 @@ extension City {
         return arr.joined(separator: ", ")
     }
 }
+
+extension Coordinates: Hashable {}
+
+extension City: Hashable {
+    static func == (lhs: City, rhs: City) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
