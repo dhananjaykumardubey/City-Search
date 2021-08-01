@@ -152,7 +152,47 @@ class CityListViewModelTests: XCTestCase {
         self.viewModel?.didSelect(city, at: indexPath)
         self.wait(for: [expect, errorExpect], timeout: 1)
     }
+    
+    func testSearchForEmptyString() {
+        let expect = self.expectation(description: "test search for empty string")
+       
+        let viewModel = CityListViewModel(with: self.city())
+        
+        viewModel.cities = { data in
+            expect.fulfill()
+            XCTAssertEqual(data.count, 3)
+            XCTAssertEqual(data[0].fullAddress, "Azriqam, IL")
+            XCTAssertEqual(data[1].fullAddress, "Hurzuf, UA")
+            XCTAssertEqual(data[2].fullAddress, "Novinki, RU")
+        }
+        
+        viewModel.search(for: "")
+        self.wait(for: [expect], timeout: 1)
+    }
 
+    func testSearchForText() {
+        guard let cities = try? parse(toType: Cities.self, data: Stubbed.searchCityStubbedData)
+        else {
+            XCTFail()
+            return
+        }
+        let expect = self.expectation(description: "test search for input string")
+        XCTAssertNotNil(cities)
+        XCTAssertEqual(cities.count, 15)
+       
+        let viewModel = CityListViewModel(with: cities)
+        
+        viewModel.cities = { data in
+            expect.fulfill()
+            XCTAssertEqual(data.count, 2)
+            XCTAssertEqual(data[0].fullAddress, "Bangalore, IN")
+            XCTAssertEqual(data[1].fullAddress, "Bangalow, AU")
+        }
+        
+        viewModel.search(for: "Bang")
+        self.wait(for: [expect], timeout: 1)
+    }
+    
     private func city() -> [City] {
         
         let stubbedData = Data("""

@@ -28,19 +28,15 @@ class SearchManager {
         filterStart = 0
         filterEnd = cities.count - 1
     }
-
-    func filteredCitiesCount() -> Int {
-        if filterStart == -1 {
-            return 0
-        }
-        return filterEnd - filterStart + 1
+    
+    func search(for text: String) -> Cities {
+        self.filterStart = binarySearchFirst(array: self.cities, target: text)
+        self.filterEnd = binarySearchLast(array: self.cities, target: text)
+        if filterStart == -1 || filterEnd == -1 { return [] }
+        return Array(self.cities[filterStart...filterEnd])
     }
-
-    func filteredCityAtIndex(index: Int) -> City {
-        return self.cities[filterStart + index]
-    }
-
-    func binarySearchLast(array: [City], target: String) -> Int {
+    
+    private func binarySearchLast(array: [City], target: String) -> Int {
         var left = 0
         var right = array.count - 1
 
@@ -71,7 +67,7 @@ class SearchManager {
         return -1
     }
 
-    func binarySearchFirst(array: [City], target: String) -> Int {
+    private func binarySearchFirst(array: [City], target: String) -> Int {
         var left = 0
         var right = array.count - 1
 
@@ -97,19 +93,5 @@ class SearchManager {
             }
         }
         return -1
-    }
-
-    func updateFilter(filter: String) -> Cities {
-
-        if filter == "" {
-            filterStart = 0
-            filterEnd = self.cities.count - 1
-            return []
-        }
-
-        filterStart = binarySearchFirst(array: self.cities, target: filter)
-        filterEnd = binarySearchLast(array: self.cities, target: filter)
-        if filterStart == -1 || filterEnd == -1 { return [] }
-        return Array(self.cities[filterStart...filterEnd])
     }
 }

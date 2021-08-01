@@ -33,11 +33,17 @@ final class CityListViewModel {
     private lazy var cityList: [City] = []
     private var searchManager: SearchManager?
     
-    required init(with apiClient: APIClient) {
+    init(with apiClient: APIClient?) {
         self.apiClient = apiClient
     }
     
-    /// BindViewModel call to let viewmodel know that bindViewModel of viewcontroller is called and completed and properties : PrefixSearchable<City>can be observed
+    convenience init(with cities: Cities) {
+        self.init(with: nil)
+        self.cityList = sortOnCity(cities)
+        self.searchManager = SearchManager(with: self.cityList)
+    }
+    
+    /// BindViewModel call to let viewmodel know that bindViewModel of viewcontroller is called and completed and properties can be observed
     func bindViewModel() {
         self.fetchCities()
     }
@@ -55,9 +61,7 @@ final class CityListViewModel {
                     switch response {
                     case let .success(cities):
                         if !cities.isEmpty {
-                            let sortedCities = cities.sorted { lhs, rhs in
-                                return (lhs.city ?? "") < (rhs.city ?? "")
-                            }
+                            let sortedCities = sortOnCity(cities)
                             _self.cityList = sortedCities
                             _self.searchManager = SearchManager(with: sortedCities)
                             _self.cities?(sortedCities)
@@ -87,7 +91,13 @@ final class CityListViewModel {
         if text.isEmpty {
             self.cities?(self.cityList)
         } else {
-            self.cities?(self.searchManager?.updateFilter(filter: text.lowercased()) ?? [])
+            self.cities?(self.searchManager?.search(for: text.lowercased()) ?? [])
         }
+    }
+}
+
+fileprivate func sortOnCity(_ cities: Cities) -> Cities {
+    return cities.sorted { lhs, rhs in
+        return (lhs.city ?? "") < (rhs.city ?? "")
     }
 }

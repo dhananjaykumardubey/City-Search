@@ -183,15 +183,15 @@
 			isa = PBXGroup;
 			children = (
 				E5A88C0426B467B90018B2B3 /* CitiesMock.json */,
-				E5A88C0A26B473110018B2B3 /* CitiesWrongDataMock.json */,
-				E5A88C0E26B5087C0018B2B3 /* EmptyData.json */,
-				E50D05C626B45B6900DD8D6C /* StubbedData.swift */,
-				E5A88C0C26B47EAC0018B2B3 /* CityListViewModelTests.swift */,
-				91C94A2926B6F42000AECE91 /* SearchManagerTests.swift */,
-				91C94A4D26B71AB400AECE91 /* CityListDataSourceTests.swift */,
-				E5A88C0826B46AD70018B2B3 /* CityServiceTests.swift */,
-				E50F841626B30D1700D380E2 /* Info.plist */,
 				E5A88C0026B45DC90018B2B3 /* CitiesTests.swift */,
+				E5A88C0A26B473110018B2B3 /* CitiesWrongDataMock.json */,
+				91C94A4D26B71AB400AECE91 /* CityListDataSourceTests.swift */,
+				E5A88C0C26B47EAC0018B2B3 /* CityListViewModelTests.swift */,
+				E5A88C0826B46AD70018B2B3 /* CityServiceTests.swift */,
+				E5A88C0E26B5087C0018B2B3 /* EmptyData.json */,
+				E50F841626B30D1700D380E2 /* Info.plist */,
+				91C94A2926B6F42000AECE91 /* SearchManagerTests.swift */,
+				E50D05C626B45B6900DD8D6C /* StubbedData.swift */,
 			);
 			path = CitySearchTests;
 			sourceTree = "<group>";
@@ -237,18 +237,18 @@
 		E5589A3F26B3C743002D4417 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				E5589A4026B3C77D002D4417 /* Nib.swift */,
-				E5A88C1426B512C80018B2B3 /* UITableView+Enhancements.swift */,
-				E5589A4226B3C828002D4417 /* Storyboard.swift */,
-				E5589A4426B3C94C002D4417 /* UIViewController+Enhancements.swift */,
-				E5251FC326B3E06F006B61B2 /* ThreadUtils.swift */,
-				E5A88C1C26B51D830018B2B3 /* MKMapView+Enhancements.swift */,
-				E5A88C1226B50F860018B2B3 /* UIImage+Enhancements.swift */,
 				E5A88C2026B540DD0018B2B3 /* CLLocationCoordinate2D+Equatable.swift */,
-				E5A88C1E26B536AB0018B2B3 /* UIView+Animations.swift */,
-				91C94A0626B6BBBC00AECE91 /* UITextField+Enhancements.swift */,
+				E5A88C1C26B51D830018B2B3 /* MKMapView+Enhancements.swift */,
+				E5589A4026B3C77D002D4417 /* Nib.swift */,
 				91C94A0D26B6BC7000AECE91 /* Option+Wrapped.swift */,
 				91C94A3126B709E300AECE91 /* SearchManager.swift */,
+				E5589A4226B3C828002D4417 /* Storyboard.swift */,
+				E5251FC326B3E06F006B61B2 /* ThreadUtils.swift */,
+				E5A88C1226B50F860018B2B3 /* UIImage+Enhancements.swift */,
+				E5A88C1426B512C80018B2B3 /* UITableView+Enhancements.swift */,
+				91C94A0626B6BBBC00AECE91 /* UITextField+Enhancements.swift */,
+				E5A88C1E26B536AB0018B2B3 /* UIView+Animations.swift */,
+				E5589A4426B3C94C002D4417 /* UIViewController+Enhancements.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -256,11 +256,11 @@
 		E5DCEFCB26B31109003E8E51 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				E50F840326B30D1300D380E2 /* Main.storyboard */,
-				E50F840126B30D1300D380E2 /* CityListViewController.swift */,
-				E5A88C1026B50AF80018B2B3 /* MapsViewController.swift */,
 				E5589A3C26B3C61B002D4417 /* CityCell.swift */,
 				E5589A4626B3CC2A002D4417 /* CityCell.xib */,
+				E50F840126B30D1300D380E2 /* CityListViewController.swift */,
+				E50F840326B30D1300D380E2 /* Main.storyboard */,
+				E5A88C1026B50AF80018B2B3 /* MapsViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -277,11 +277,11 @@
 		E5DCEFCF26B319F3003E8E51 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				E5589A3326B3C129002D4417 /* APIClient.swift */,
 				E5DCEFD026B31C07003E8E51 /* Loadable.swift */,
 				E5DCEFD426B320F6003E8E51 /* Parser.swift */,
-				E5DCEFD226B31D24003E8E51 /* ServiceErrors.swift */,
 				E5DCEFD626B321DF003E8E51 /* Service.swift */,
-				E5589A3326B3C129002D4417 /* APIClient.swift */,
+				E5DCEFD226B31D24003E8E51 /* ServiceErrors.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
