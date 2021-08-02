@@ -26,6 +26,20 @@ class CitiesTests: XCTestCase {
         self.cities = nil
     }
     
+    func testCityEquatability() {
+        let city1 = City(country: "Country", city: "City", id: 123)
+        let city2 = City(country: "Country", city: "City", id: 123)
+        
+        XCTAssertTrue(city1 == city2)
+    }
+    
+    func testCityUnEquatability() {
+        let city1 = City(country: "Country", city: "City", id: 1234)
+        let city2 = City(country: "Country", city: "City", id: 123)
+        
+        XCTAssertFalse(city1 == city2)
+    }
+    
     func testSuccessfulParsing() {
         guard
             let cities = self.cities,

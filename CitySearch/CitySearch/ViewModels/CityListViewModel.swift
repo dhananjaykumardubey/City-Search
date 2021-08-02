@@ -39,7 +39,7 @@ final class CityListViewModel {
     
     convenience init(with cities: Cities) {
         self.init(with: nil)
-        self.cityList = sortOnCity(cities)
+        self.cityList = cities.sortOnCity()
         self.searchManager = SearchManager(with: self.cityList)
     }
     
@@ -61,7 +61,7 @@ final class CityListViewModel {
                     switch response {
                     case let .success(cities):
                         if !cities.isEmpty {
-                            let sortedCities = sortOnCity(cities)
+                            let sortedCities = cities.sortOnCity()
                             _self.cityList = sortedCities
                             _self.searchManager = SearchManager(with: sortedCities)
                             _self.cities?(sortedCities)
@@ -91,13 +91,7 @@ final class CityListViewModel {
         if text.isEmpty {
             self.cities?(self.cityList)
         } else {
-            self.cities?(self.searchManager?.search(for: text.lowercased()) ?? [])
+            self.cities?(self.searchManager?.search(for: text) ?? [])
         }
-    }
-}
-
-fileprivate func sortOnCity(_ cities: Cities) -> Cities {
-    return cities.sorted { lhs, rhs in
-        return (lhs.city ?? "") < (rhs.city ?? "")
     }
 }

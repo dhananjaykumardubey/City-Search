@@ -12,6 +12,7 @@
 		91C94A2A26B6F42000AECE91 /* SearchManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C94A2926B6F42000AECE91 /* SearchManagerTests.swift */; };
 		91C94A3226B709E300AECE91 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C94A3126B709E300AECE91 /* SearchManager.swift */; };
 		91C94A4E26B71AB400AECE91 /* CityListDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C94A4D26B71AB400AECE91 /* CityListDataSourceTests.swift */; };
+		91C94A5C26B786D100AECE91 /* Array+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C94A5B26B786D100AECE91 /* Array+Sorting.swift */; };
 		E50D05C726B45B6900DD8D6C /* StubbedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50D05C626B45B6900DD8D6C /* StubbedData.swift */; };
 		E50F83FE26B30D1300D380E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F83FD26B30D1300D380E2 /* AppDelegate.swift */; };
 		E50F840226B30D1300D380E2 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F840126B30D1300D380E2 /* CityListViewController.swift */; };
@@ -74,6 +75,7 @@
 		91C94A2926B6F42000AECE91 /* SearchManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManagerTests.swift; sourceTree = "<group>"; };
 		91C94A3126B709E300AECE91 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		91C94A4D26B71AB400AECE91 /* CityListDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListDataSourceTests.swift; sourceTree = "<group>"; };
+		91C94A5B26B786D100AECE91 /* Array+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Sorting.swift"; sourceTree = "<group>"; };
 		E50D05C626B45B6900DD8D6C /* StubbedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubbedData.swift; sourceTree = "<group>"; };
 		E50F83FA26B30D1300D380E2 /* CitySearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitySearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50F83FD26B30D1300D380E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				E5589A4226B3C828002D4417 /* Storyboard.swift */,
 				E5251FC326B3E06F006B61B2 /* ThreadUtils.swift */,
 				E5A88C1226B50F860018B2B3 /* UIImage+Enhancements.swift */,
+				91C94A5B26B786D100AECE91 /* Array+Sorting.swift */,
 				E5A88C1426B512C80018B2B3 /* UITableView+Enhancements.swift */,
 				91C94A0626B6BBBC00AECE91 /* UITextField+Enhancements.swift */,
 				E5A88C1E26B536AB0018B2B3 /* UIView+Animations.swift */,
@@ -455,6 +458,7 @@
 				E5DCEFD726B321DF003E8E51 /* Service.swift in Sources */,
 				E5A88C1926B51B530018B2B3 /* MapItem.swift in Sources */,
 				E5A88C1F26B536AB0018B2B3 /* UIView+Animations.swift in Sources */,
+				91C94A5C26B786D100AECE91 /* Array+Sorting.swift in Sources */,
 				91C94A3226B709E300AECE91 /* SearchManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

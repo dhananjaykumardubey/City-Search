@@ -170,7 +170,7 @@ class CityListViewModelTests: XCTestCase {
         self.wait(for: [expect], timeout: 1)
     }
 
-    func testSearchForText() {
+    func testSuccessfullSearchForText() {
         guard let cities = try? parse(toType: Cities.self, data: Stubbed.searchCityStubbedData)
         else {
             XCTFail()

@@ -9,8 +9,8 @@ import UIKit
 
 final class CityCell: UITableViewCell {
     
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var subtitleLabel: UILabel!
+    @IBOutlet private(set) weak var titleLabel: UILabel!
+    @IBOutlet private(set) weak var subtitleLabel: UILabel!
     
     /**
      Configure cell with city data
