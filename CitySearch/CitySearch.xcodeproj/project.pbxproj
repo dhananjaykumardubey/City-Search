@@ -146,6 +146,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91C94B9E26B9A0B100AECE91 /* Mock Jsons */ = {
+			isa = PBXGroup;
+			children = (
+				E5A88C0426B467B90018B2B3 /* CitiesMock.json */,
+				E5A88C0A26B473110018B2B3 /* CitiesWrongDataMock.json */,
+				E5A88C0E26B5087C0018B2B3 /* EmptyData.json */,
+			);
+			path = "Mock Jsons";
+			sourceTree = "<group>";
+		};
 		E50F83F126B30D1300D380E2 = {
 			isa = PBXGroup;
 			children = (
@@ -184,13 +194,11 @@
 		E50F841326B30D1700D380E2 /* CitySearchTests */ = {
 			isa = PBXGroup;
 			children = (
-				E5A88C0426B467B90018B2B3 /* CitiesMock.json */,
+				91C94B9E26B9A0B100AECE91 /* Mock Jsons */,
 				E5A88C0026B45DC90018B2B3 /* CitiesTests.swift */,
-				E5A88C0A26B473110018B2B3 /* CitiesWrongDataMock.json */,
 				91C94A4D26B71AB400AECE91 /* CityListDataSourceTests.swift */,
 				E5A88C0C26B47EAC0018B2B3 /* CityListViewModelTests.swift */,
 				E5A88C0826B46AD70018B2B3 /* CityServiceTests.swift */,
-				E5A88C0E26B5087C0018B2B3 /* EmptyData.json */,
 				E50F841626B30D1700D380E2 /* Info.plist */,
 				91C94A2926B6F42000AECE91 /* SearchManagerTests.swift */,
 				E50D05C626B45B6900DD8D6C /* StubbedData.swift */,
