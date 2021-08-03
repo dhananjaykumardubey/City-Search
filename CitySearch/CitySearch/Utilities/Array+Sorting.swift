@@ -9,6 +9,7 @@ import Foundation
 
 extension Array where Element == City {
     
+    /// Sort the array on the basis of City in ascending order
     func sortOnCity() -> [Element] {
         return self.sorted { lhs, rhs in
             return (lhs.city ?? "") < (rhs.city ?? "")

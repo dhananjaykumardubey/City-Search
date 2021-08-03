@@ -28,11 +28,12 @@ final class CityListViewModel {
     /// Callback to send out location of city when city is selected
     var citySelectionObserver: (((CLLocationCoordinate2D, IndexPath, String)) -> Void)?
 
-    //MARK: Private properties
+    // MARK: Private properties
     private let apiClient: APIClient?
     private lazy var cityList: [City] = []
     private var searchManager: SearchManager?
     
+    // MARK: Initializers
     init(with apiClient: APIClient?) {
         self.apiClient = apiClient
     }
@@ -42,6 +43,8 @@ final class CityListViewModel {
         self.cityList = cities.sortOnCity()
         self.searchManager = SearchManager(with: self.cityList)
     }
+    
+    // MARK: Exposed functions to view controlelrs
     
     /// BindViewModel call to let viewmodel know that bindViewModel of viewcontroller is called and completed and properties can be observed
     func bindViewModel() {
@@ -76,7 +79,8 @@ final class CityListViewModel {
             })
         }
     }
-    
+     
+    /// Called when user selects any city on the table view
     func didSelect(_ city: City, at indexPath: IndexPath) {
         guard let lat = city.coordinates?.lat,
               let lon = city.coordinates?.lon
@@ -87,6 +91,7 @@ final class CityListViewModel {
         self.citySelectionObserver?((CLLocationCoordinate2D(latitude: lat, longitude: lon), indexPath, city.fullAddress))
     }
 
+    /// Find all the citites starting from the text
     func search(for text: String) {
         if text.isEmpty {
             self.cities?(self.cityList)

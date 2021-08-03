@@ -9,7 +9,8 @@ import UIKit
 
 extension UIView {
     
-    func bounceOut(delay: Double) {
+    /// Provide bouncing out animation with a delay
+    func bounceOut(delay: Double = 1.0) {
         self.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
         UIView.animate(withDuration: 0.5,
                        delay: delay,

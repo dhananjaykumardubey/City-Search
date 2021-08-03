@@ -8,14 +8,24 @@
 import Foundation
 
 protocol Service: Loadable {
+    
+    /// generic type confirming to Decodable model to which the data will be parsed
     associatedtype Response: Decodable
     
+    /**
+     Loads the file from bundle, and parse it into required Model
+     - parameters:
+        - fileName: Filename, which needs to be loaded
+        - bundle: Bundle from where this file needs to be loaded.
+        - completion: On completion, it returns with Result type with the Model of type `Response` or error as `ServiceErrors`
+     */
     func execute(for fileName: String,
                  in bundle: Bundle,
                  then completion: @escaping ((Result<Response, ServiceErrors>) -> Void))
 }
 
 extension Service {
+    
     func execute(for fileName: String,
                  in bundle: Bundle,
                  then completion: @escaping ((Result<Response, ServiceErrors>) -> Void)) {

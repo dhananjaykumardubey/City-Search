@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// City service class confirming to APIClient and Service protocols
+/// This is the outer layer or top most layer, which will be used to fetch the cities from presentation layer
 final class CityService: APIClient, Service {
 
     typealias Response = Cities

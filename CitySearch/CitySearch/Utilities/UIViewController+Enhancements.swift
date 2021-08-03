@@ -25,6 +25,7 @@ extension UIViewController {
         return self.description().components(separatedBy: ".").dropFirst().joined(separator: ".")
     }
     
+    /// Used to present a view controller on top of another view controller as a PopOver
     func present(_ viewControllerToPopOver: UIViewController,
                  onSourceView: UIView,
                  onSourceRect: CGRect,

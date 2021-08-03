@@ -15,7 +15,7 @@ import Foundation
 // MARK: - City
 /**
  Model to represent `City`
- Marking all the properties nullable, because didn't wanted it to be tightly coupled. It might be parsing fail or crash, if any of the value comes as nil from backend. To avoid that, and to remove that dependency, thought to take everything as optional
+ Marking all the properties nullable, because didn't wanted it to be tightly coupled. It might fail while parsing or crash, if any of the value comes as nil from backend. To avoid that, and to remove that dependency, thought to take everything as optional
  */
 struct City: Decodable {
     let country: String?

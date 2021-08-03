@@ -10,9 +10,16 @@ import Foundation
 /// This can be extended to handle all the various types, like network erros, request/response errors
 enum ServiceErrors: Error {
     
+    /// Error thrown when parsing fails for model
     case unableToParseData
+    
+    /// Error thrown when file name (which needs to be loaded) is wrong or file not found in bundle
     case unableToLoadFile
+    
+    /// Error thrown loaded file is having corruped content and not able to convert it into data
     case dataCorrupted
+    
+    /// Error thrown when file is empty and the result tends to empty data
     case noDataFound
     
     var errorDescription: String {

@@ -42,25 +42,44 @@ import Foundation
  `Conclusion and the approach used`
  After trying few of these approach like `1, 3, 4` I decided to go with `Approach 1` with `Binary Search`, because the list was sorted already and didn't require any extra converstion of list into different data structure which saved my loading and displaying time to user, increasing user experience and not keeping them waiting for long time.
  Also, the Search was efficient than linear, which was required for this code challenge.
+ 
+ To achieve this I modified the generic binary search to search for a string in an array of strings. Expanded the binary search on strings such that instead of finding an exact match it looks if a string in our collection starts with our target strings. If a string starts with our target string we say that the target string is a prefix of that string.
+  
+ `SOLUTION`
+ 
+     Since, there can potentially be many items in the array that start with the same prefix. So implemented a function `binarySearchFirst` which returns the index of the first string in the array that starts with a given prefix.
+ 
+    Similarly implemented a function `binarySearchLast` that returns the index of the last string in the array that starts with a given prefix.
+ 
+    The result will be data between StartIndex - EndIndex
  */
+
 class SearchManager {
     
     private var cities: [City]
-    private var filterStart: Int
-    private var filterEnd: Int
+    private var prefixStartIndex: Int
+    private var prefixEndIndex: Int
     
+    /// Initialise the search Manager with cities
     init(with cities: Cities) {
         self.cities = cities
-        filterStart = 0
-        filterEnd = cities.count - 1
+        prefixStartIndex = 0
+        prefixEndIndex = cities.count - 1
     }
     
+    /// Returns all the cities in between StartIndex `prefixStartIndex` and endIndex `prefixEndIndex`
     func search(for text: String) -> Cities {
-        self.filterStart = binarySearchFirst(array: self.cities, target: text.lowercased())
-        self.filterEnd = binarySearchLast(array: self.cities, target: text.lowercased())
-        if filterStart == -1 || filterEnd == -1 { return [] }
-        return Array(self.cities[filterStart...filterEnd])
+        self.prefixStartIndex = binarySearchFirst(array: self.cities, target: text.lowercased())
+        self.prefixEndIndex = binarySearchLast(array: self.cities, target: text.lowercased())
+        if prefixStartIndex == -1 || prefixEndIndex == -1 { return [] }
+        return Array(self.cities[prefixStartIndex...prefixEndIndex])
     }
+    
+    // MARK: Search Algorithm
+    
+    /// Returns an index in one of 2 cases:
+    /// 1. The left and right indices are equal and the target is a prefix of the current value
+    /// 2. The target is a prefix of the current value and the previous element in our array is not a prefix of the current value.
     
     private func binarySearchFirst(array: [City], target: String) -> Int {
         var left = 0
@@ -89,7 +108,7 @@ class SearchManager {
         }
         return -1
     }
-    
+
     private func binarySearchLast(array: [City], target: String) -> Int {
         var left = 0
         var right = array.count - 1

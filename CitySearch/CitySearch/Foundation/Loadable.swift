@@ -7,9 +7,17 @@
 
 import Foundation
 
-/// Protocol to load file from app bundle, this can be extended further for API calls and scaling up for actual network layer
+/// Protocol to load file from app bundle
+/// this can be extended further for API calls and scaling up for actual network layer
 protocol Loadable {
-    // TODO: Write document
+    
+    /**
+     Loads the file from bundle, converts it into a Data format
+     - parameters:
+        - name: Filename, which needs to be loaded
+        - bundle: bundle from where this file needs to be loaded.
+        - returns: Response in terms of Result type
+     */
     func loadLocalFile(for name: String,
                        from bundle: Bundle) -> Result<Data?, ServiceErrors>
 }

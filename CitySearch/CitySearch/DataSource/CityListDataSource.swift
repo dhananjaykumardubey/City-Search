@@ -12,10 +12,10 @@ class CityListDataSource: NSObject, UITableViewDataSource {
     private var cities: [City]
     
     /**
-     Initializes `CityListDataSource` with provided exchange rate data, to be displayed in collection view
+     Initializes `CityListDataSource` with provided cities, to be displayed in table view
      
      - parameters:
-     - data: datasource of exchange rate data
+        - data: datasource of cities
      */
     init(with cities: [City]) {
         self.cities = cities
@@ -39,9 +39,17 @@ class CityListDataSource: NSObject, UITableViewDataSource {
 }
 
 extension CityListDataSource {
-    func city(at indexPath: IndexPath) -> City? {
+    
+    /**
+     Returns the city at asked indexPath. Triggered from didSelectRow, delegate method of tableView
+     - parameters:
+        - tableView: The Tableview on which cities is displayed
+        - indexPath: The requested indexPath
+        - returns: City found at the indexPath, if not found then returns nil
+     */
+    func city(in tableView: UITableView, at indexPath: IndexPath) -> City? {
         guard !self.cities.isEmpty,
-              self.cities.count > indexPath.row
+              tableView.hasRow(at: indexPath)
         else { return nil }
         return self.cities[indexPath.row]
     }
