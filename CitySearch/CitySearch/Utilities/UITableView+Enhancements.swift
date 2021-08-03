@@ -16,6 +16,7 @@ extension UITableView {
     
     /// Checks if there is a valid row at given indexPath
     func hasRow(at indexPath: IndexPath) -> Bool {
-        return indexPath.section < self.numberOfSections && indexPath.row < self.numberOfRows(inSection: indexPath.section)
+        return indexPath.section < self.numberOfSections &&
+            indexPath.row < self.numberOfRows(inSection: indexPath.section)
     }
 }

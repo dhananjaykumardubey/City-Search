@@ -43,13 +43,12 @@ extension CityListDataSource {
     /**
      Returns the city at asked indexPath. Triggered from didSelectRow, delegate method of tableView
      - parameters:
-        - tableView: The Tableview on which cities is displayed
         - indexPath: The requested indexPath
         - returns: City found at the indexPath, if not found then returns nil
      */
-    func city(in tableView: UITableView, at indexPath: IndexPath) -> City? {
+    func city(at indexPath: IndexPath) -> City? {
         guard !self.cities.isEmpty,
-              tableView.hasRow(at: indexPath)
+              self.cities.count > indexPath.row
         else { return nil }
         return self.cities[indexPath.row]
     }

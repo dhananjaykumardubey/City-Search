@@ -104,7 +104,7 @@ final class CityListViewController: UIViewController {
 
 extension CityListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let city = self.dataSource?.city(in: tableView, at: indexPath) else { return }
+        guard let city = self.dataSource?.city(at: indexPath) else { return }
         self.viewModel?.didSelect(city, at: indexPath)
     }
 }
