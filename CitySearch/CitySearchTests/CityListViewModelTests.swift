@@ -32,6 +32,8 @@ class CityListViewModelTests: XCTestCase {
             XCTAssertNotNil(data)
             XCTAssertEqual(data.count, 3)
         }
+        
+        
         self.viewModel?.fetchCities()
         self.wait(for: [expect], timeout: 1)
     }

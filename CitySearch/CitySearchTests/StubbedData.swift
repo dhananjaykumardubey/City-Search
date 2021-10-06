@@ -8,7 +8,7 @@
 import Foundation
 
 struct Stubbed {
-    static let successStubbedData = Data("""
+    static let successGetFilterLeadsStubbedData = Data("""
             [
               {
                   \"country\":\"UA\",

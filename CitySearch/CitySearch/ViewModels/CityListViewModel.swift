@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 import CoreLocation
+protocol CityListViewModelOutput {
+    var count: String { get }
+}
 
 final class CityListViewModel {
     
@@ -18,6 +21,8 @@ final class CityListViewModel {
     
     /// Callback for removing the loader
     var endLoading: (() -> Void)?
+    
+    var countLabel: ((String) -> Void)?
     
     /// Callback for showing the error message
     var showError: ((String) -> Void)?
@@ -68,6 +73,7 @@ final class CityListViewModel {
                             _self.cityList = sortedCities
                             _self.searchManager = SearchManager(with: sortedCities)
                             _self.cities?(sortedCities)
+                            _self.countLabel?("The success data")
                         } else {
                             _self.showError?(ServiceErrors.noDataFound.errorDescription)
                         }
